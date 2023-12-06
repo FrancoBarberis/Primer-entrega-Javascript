@@ -1,6 +1,6 @@
 
 
-let presupuesto = 30;
+let presupuesto = 100;
 let cantChocolates = 0;
 let cantChupetines = 0;
 let cantAlfajores = 0;
