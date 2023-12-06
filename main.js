@@ -1,30 +1,95 @@
-//ESTO ES UN SIMULADOR DE GOLOSINAS EN EL QUE SE INGRESA UN NUMERO PARA RECIBIR CIERTO PRODUCTO
 
-//DECLARO LOS CONTADORES DE LAS GOLOSINAS
-let chupetin = 0;
-let chocolate = 0;
-let alfajor = 0;
 
-//LE DEJO AL USUARIO ELEGIR GOLOSINAS 3 VECES
-for (let index = 0; index < 3; index++) {
-    let productoElegido = parseInt(prompt("Ingrese el codigo de producto deseado (1, 2 o 3)"));
-
-    //DECIDO EN FUNCION DEL CODIGO DE PRODUCTO
-    switch (productoElegido) {
+let presupuesto = 100;
+let cantChocolates = 0;
+let cantChupetines = 0;
+let cantAlfajores = 0;
+let sigueComprando = true;
+while (presupuesto > 0 && sigueComprando) {
+    let eleccion = parseInt(prompt("Presupuesto: " + presupuesto + ", (OPCION 1)Precio Chocolates: 30" + ", (OPCION 2)PrecioAlfajores: 20" + ", (OPCION 3)Precio Chupetines: 10"));
+    switch (eleccion) {
         case 1:
-            chupetin++;
-            break;
+            if (presupuesto >= 30) {
+                cantChocolates++;
+                presupuesto -= 30;
+                let bandera = true;
+                while (bandera) {
+                    let sigue = prompt("Desea seguir comprando? (si o no)" + " ,Presupuesto: " + presupuesto);
+                    switch (sigue) {
+                        case "si":
+                            sigueComprando = true;
+                            bandera = false;
+                            break;
+                        case "no":
+                            sigueComprando = false;
+                            bandera = false;
+                            break;
+                        default:
+                            alert("Ingrese un valor válido (si o no)" + " ,Presupuesto: " + presupuesto);
+                            break;
+                    }
+                }
+                break;
+            } else {
+                alert("No alcanza el presupuesto para comprar chocolates");
+                break;
+            }
         case 2:
-            chocolate++;
-            break;
+            if (presupuesto >= 20) {
+                cantAlfajores++;
+                presupuesto -= 20;
+                let bandera = true;
+                while (bandera) {
+                    let sigue = prompt("Desea seguir comprando? (si o no)" + " ,Presupuesto: " + presupuesto);
+                    switch (sigue) {
+                        case "si":
+                            sigueComprando = true;
+                            bandera = false;
+                            break;
+                        case "no":
+                            sigueComprando = false;
+                            bandera = false;
+                            break;
+                        default:
+                            alert("Ingrese un valor válido (si o no)" + " ,Presupuesto: " + presupuesto);
+                            break;
+                    }
+                }
+                break;
+            } else {
+                alert("No alcanza el presupuesto para comprar alfajores");
+                break;
+            }
+
         case 3:
-            alfajor++;
-            break;
+            if (presupuesto >= 10) {
+                cantChupetines++;
+                presupuesto -= 10; let bandera = true;
+                while (bandera) {
+                    let sigue = prompt("Desea seguir comprando? (si o no)" + " ,Presupuesto: " + presupuesto);
+                    switch (sigue) {
+                        case "si":
+                            sigueComprando = true;
+                            bandera = false;
+                            break;
+                        case "no":
+                            sigueComprando = false;
+                            bandera = false;
+                            break;
+                        default:
+                            alert("Ingrese un valor válido (si o no)" + " ,Presupuesto: " + presupuesto);
+                            break;
+                    }
+                }
+                break;
+        
+                else {
+                    alert("No alcanza el presupuesto para comprar chupetines");
+                    break;
+                }
+            }
         default:
-            alert("Ingrese un codigo valido");
-            index--; //DECREMENTO EL CONTADOR Y REESTABLEZCO EL INTENTO FALLIDO
+            alert("Ingrese un valor válido (1/2/3)");
             break;
     }
-}
-//DOY EL MENSAJE CON LAS CANTIDADES ELEGIDAS
-alert("Usted recibe"+" Chupetines: "+chupetin+" Chocolates: "+chocolate+" Alfajores: "+alfajor);
+    alert("Usted recibe: " + "Chocolates: " + cantChocolates + " Chupetines: " + cantChupetines + " Alfajores: " + cantAlfajores);
