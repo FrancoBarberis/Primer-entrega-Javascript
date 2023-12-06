@@ -82,11 +82,11 @@ while (presupuesto > 0 && sigueComprando) {
                     }
                 }
                 break;
-        
-                else {
-                    alert("No alcanza el presupuesto para comprar chupetines");
-                    break;
-                }
+
+
+            } else {
+                alert("No alcanza el presupuesto para comprar chupetines");
+                break;
             }
         default:
             alert("Ingrese un valor válido (1/2/3)");
